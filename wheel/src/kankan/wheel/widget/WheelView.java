@@ -754,7 +754,6 @@ public class WheelView extends View {
         Parcelable superState = super.onSaveInstanceState();
 
         SavedState ss = new SavedState(superState);
-        // end
 
         ss.mCurrentItem = currentItem;
 
