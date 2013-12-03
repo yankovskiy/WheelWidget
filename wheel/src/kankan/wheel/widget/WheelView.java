@@ -30,6 +30,8 @@ import android.graphics.Canvas;
 import android.graphics.drawable.Drawable;
 import android.graphics.drawable.GradientDrawable;
 import android.graphics.drawable.GradientDrawable.Orientation;
+import android.os.Parcel;
+import android.os.Parcelable;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.view.View;
@@ -43,6 +45,36 @@ import android.widget.LinearLayout;
  * @author Yuri Kanivets
  */
 public class WheelView extends View {
+
+    static class SavedState extends BaseSavedState {
+
+        int mCurrentItem;
+
+        public static final Parcelable.Creator<SavedState> CREATOR = new Parcelable.Creator<SavedState>() {
+            public SavedState createFromParcel(Parcel in) {
+                return new SavedState(in);
+            }
+
+            public SavedState[] newArray(int size) {
+                return new SavedState[size];
+            }
+        };
+
+        private SavedState(Parcel in) {
+            super(in);
+            this.mCurrentItem = in.readInt();
+        }
+
+        public SavedState(Parcelable superState) {
+            super(superState);
+        }
+
+        @Override
+        public void writeToParcel(Parcel out, int flags) {
+            super.writeToParcel(out, flags);
+            out.writeInt(this.mCurrentItem);
+        }
+    }
 
     /** Top and bottom shadows colors */
     private static final int[] SHADOWS_COLORS = new int[] { 0xFF111111,
@@ -71,16 +103,16 @@ public class WheelView extends View {
 
     // Shadows drawables
     private GradientDrawable topShadow;
+
     private GradientDrawable bottomShadow;
 
     // Scrolling
     private WheelScroller scroller;
     private boolean isScrollingPerformed;
-    private int scrollingOffset;
 
+    private int scrollingOffset;
     // Cyclic
     boolean isCyclic = false;
-
     // Items layout
     private LinearLayout itemsLayout;
 
@@ -95,9 +127,10 @@ public class WheelView extends View {
 
     // Listeners
     private List<OnWheelChangedListener> changingListeners = new LinkedList<OnWheelChangedListener>();
-    private List<OnWheelScrollListener> scrollingListeners = new LinkedList<OnWheelScrollListener>();
-    private List<OnWheelClickedListener> clickingListeners = new LinkedList<OnWheelClickedListener>();
 
+    private List<OnWheelScrollListener> scrollingListeners = new LinkedList<OnWheelScrollListener>();
+
+    private List<OnWheelClickedListener> clickingListeners = new LinkedList<OnWheelClickedListener>();
     // Scrolling listener
     WheelScroller.ScrollingListener scrollingListener = new WheelScroller.ScrollingListener() {
         public void onFinished() {
@@ -134,7 +167,6 @@ public class WheelView extends View {
             notifyScrollingListenersAboutStart();
         }
     };
-
     // Adapter listener
     private DataSetObserver dataObserver = new DataSetObserver() {
         @Override
@@ -705,9 +737,34 @@ public class WheelView extends View {
     }
 
     @Override
+    public void onRestoreInstanceState(Parcelable state) {
+        if (!(state instanceof SavedState)) {
+            super.onRestoreInstanceState(state);
+            return;
+        }
+
+        SavedState ss = (SavedState) state;
+        super.onRestoreInstanceState(ss.getSuperState());
+
+        this.currentItem = ss.mCurrentItem;
+    }
+
+    @Override
+    public Parcelable onSaveInstanceState() {
+        Parcelable superState = super.onSaveInstanceState();
+
+        SavedState ss = new SavedState(superState);
+        // end
+
+        ss.mCurrentItem = currentItem;
+
+        return ss;
+    }
+
+    @Override
     public boolean onTouchEvent(MotionEvent event) {
         super.onTouchEvent(event);
-        
+
         if (!isEnabled() || getViewAdapter() == null) {
             return true;
         }
