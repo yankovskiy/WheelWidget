@@ -1,0 +1,310 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:layout_marginTop="0.0dip"
+    android:orientation="vertical" >
+
+    <TextView
+        android:id="@+id/about_label_dof"
+        style="?android:attr/listSeparatorTextViewStyle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Модель камеры"
+        android:textColor="@color/headear" />
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:orientation="horizontal"
+        android:paddingBottom="10.0dip"
+        android:paddingLeft="10.0dip"
+        android:paddingRight="10.0dip"
+        android:paddingTop="0.0dip" >
+
+        <kankan.wheel.widget.WheelView
+            android:id="@+id/vendor"
+            android:layout_width="0dp"
+            android:layout_height="60dp"
+            android:layout_weight="1" />
+
+        <kankan.wheel.widget.WheelView
+            android:id="@+id/camera"
+            android:layout_width="0dp"
+            android:layout_height="60dp"
+            android:layout_weight="2" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/about_label_dof"
+        style="?android:attr/listSeparatorTextViewStyle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Результаты расчетов"
+        android:textColor="@color/headear" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="2.0dip"
+        android:layout_marginLeft="10.0dip"
+        android:layout_marginTop="5.0dip"
+        android:gravity="left"
+        android:padding="0.0dip"
+        android:text="Единицы измерения:"
+        android:textSize="12.0dip"
+        android:textStyle="normal" />
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="5.0dip"
+        android:layout_marginLeft="10.0dip"
+        android:layout_marginRight="10.0dip"
+        android:layout_marginTop="0.0dip"
+        android:background="@drawable/grey_round_corner"
+        android:orientation="horizontal" >
+
+        <TextView
+            android:id="@+id/unit_m"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_weight="1.0"
+            android:background="@drawable/left_red_button"
+            android:gravity="center"
+            android:padding="0.0dip"
+            android:text="m"
+            android:textColor="#ffffffff"
+            android:textSize="16.0dip"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/unit_cm"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_weight="1.0"
+            android:background="@drawable/right_stroke"
+            android:gravity="center"
+            android:padding="0.0dip"
+            android:text="cm"
+            android:textColor="#ffffffff"
+            android:textSize="16.0dip"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/unit_ft"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_weight="1.0"
+            android:background="@drawable/right_stroke"
+            android:gravity="center"
+            android:padding="0.0dip"
+            android:text="ft."
+            android:textColor="#ffffffff"
+            android:textSize="16.0dip"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/unit_in"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_weight="1.0"
+            android:gravity="center"
+            android:padding="0.0dip"
+            android:text="in."
+            android:textColor="#ffffffff"
+            android:textSize="16.0dip"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_marginBottom="5.0dip"
+        android:layout_marginLeft="0.0dip"
+        android:layout_marginRight="0.0dip"
+        android:layout_marginTop="5.0dip"
+        android:layout_weight="1.0"
+        android:orientation="vertical"
+        android:paddingBottom="10.0dip"
+        android:paddingLeft="10.0dip"
+        android:paddingRight="10.0dip"
+        android:paddingTop="0.0dip" >
+
+        <TableLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" >
+
+            <TableRow
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" >
+
+                <TextView
+                    android:id="@+id/nfllabel"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="2"
+                    android:gravity="left"
+                    android:text="Ближняя граница:"
+                    android:textSize="12.0dip"
+                    android:textStyle="normal" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="12"
+                    android:textColor="#fff0f0f0"
+                    android:textSize="12sp" />
+            </TableRow>
+            <TableRow
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" >
+
+                <TextView
+                    android:id="@+id/H_label"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="2"
+                    android:gravity="left"
+                    android:text="Дальняя граница:"
+                    android:textSize="12.0dip"
+                    android:textStyle="normal" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="12"
+                    android:textColor="#fff0f0f0"
+                    android:textSize="12sp" />
+            </TableRow>
+            <TableRow
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" >
+
+                <TextView
+                    android:id="@+id/H_label"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="2"
+                    android:gravity="left"
+                    android:text="Гиперфокальное расстояние:"
+                    android:textSize="12.0dip"
+                    android:textStyle="normal" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="12"
+                    android:textColor="#fff0f0f0"
+                    android:textSize="12sp" />
+            </TableRow>
+                        <TableRow
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" >
+
+                <TextView
+                    android:id="@+id/H_label"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="2"
+                    android:gravity="left"
+                    android:text="Всего:"
+                    android:textSize="12.0dip"
+                    android:textStyle="normal" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="12"
+                    android:textColor="#fff0f0f0"
+                    android:textSize="12sp" />
+            </TableRow>
+        </TableLayout>
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/about_label_dof"
+        style="?android:attr/listSeparatorTextViewStyle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Параметры съемки"
+        android:textColor="@color/headear" />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginBottom="5.0dip"
+        android:layout_marginLeft="15.0dip"
+        android:layout_marginRight="15.0dip"
+        android:layout_marginTop="0.0dip"
+        android:orientation="horizontal" >
+
+        <TextView
+            android:layout_width="70.0dip"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:padding="0.0dip"
+            android:text="Диафрагма"
+            android:textSize="12.0dip"
+            android:textStyle="normal" />
+
+        <TextView
+            android:layout_width="100.0dip"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:padding="0.0dip"
+            android:text="Фокусное расстояние"
+            android:textSize="12.0dip"
+            android:textStyle="normal" />
+
+        <TextView
+            android:layout_width="115.0dip"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:padding="0.0dip"
+            android:text="Дистанция фокусировки"
+            android:textSize="12.0dip"
+            android:textStyle="normal" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:paddingBottom="10.0dip"
+        android:paddingLeft="5.0dip"
+        android:paddingRight="5.0dip"
+        android:paddingTop="0.0dip" >
+
+        <kankan.wheel.widget.WheelView
+            android:id="@+id/fstops"
+            android:layout_width="70dp"
+            android:layout_height="100dp" />
+
+        <kankan.wheel.widget.WheelView
+            android:id="@+id/focallenghts"
+            android:layout_width="100dp"
+            android:layout_height="100dp" />
+
+        <kankan.wheel.widget.WheelView
+            android:id="@+id/focdist"
+            android:layout_width="65dp"
+            android:layout_height="100dp" />
+
+        <kankan.wheel.widget.WheelView
+            android:id="@+id/focdistunit"
+            android:layout_width="50dp"
+            android:layout_height="100dp" />
+    </LinearLayout>
+
+</LinearLayout>
