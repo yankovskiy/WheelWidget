@@ -543,6 +543,19 @@ public class WheelView extends View {
     }
 
     /**
+     * @return The data corresponding to the currently selected item, or null if
+     *         there is nothing selected.
+     */
+    public Object getSelectedItem() {
+        if (viewAdapter != null && viewAdapter.getItemsCount() > 0
+                && currentItem >= 0) {
+            return viewAdapter.getItemByIndex(currentItem);
+        } else {
+            return null;
+        }
+    }
+
+    /**
      * Gets view adapter
      * 
      * @return the view adapter

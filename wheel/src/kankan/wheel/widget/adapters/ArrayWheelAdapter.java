@@ -54,4 +54,12 @@ public class ArrayWheelAdapter<T> extends AbstractWheelTextAdapter {
     public int getItemsCount() {
         return items.length;
     }
+
+    @Override
+    public Object getItemByIndex(int index) {
+        if (index >= 0 && index < items.length) {
+            return items[index];
+        } 
+        return null;
+    }
 }

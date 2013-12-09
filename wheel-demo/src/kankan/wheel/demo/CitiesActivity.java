@@ -107,5 +107,10 @@ public class CitiesActivity extends Activity {
         protected CharSequence getItemText(int index) {
             return countries[index];
         }
+
+        @Override
+        public Object getItemByIndex(int index) {
+            return getItemText(index);
+        }
     }
 }

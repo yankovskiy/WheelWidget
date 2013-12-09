@@ -201,5 +201,10 @@ public class SlotMachineActivity extends Activity {
             
             return img;
         }
+
+        @Override
+        public Object getItemByIndex(int index) {
+            return null;
+        }
     }
 }

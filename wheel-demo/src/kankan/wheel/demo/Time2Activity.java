@@ -113,5 +113,10 @@ public class Time2Activity extends Activity {
         protected CharSequence getItemText(int index) {
             return "";
         }
+
+        @Override
+        public Object getItemByIndex(int index) {
+            return null;
+        }
     }
 }
