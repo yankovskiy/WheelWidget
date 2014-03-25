@@ -606,6 +606,17 @@ public class WheelView extends View {
     }
 
     /**
+     * Sets drawable for highlights current item
+     * 
+     * @param resourceId
+     *            resource id for drawable
+     */
+    public void setCurrentDrawable(int resourceId) {
+        centerDrawable = getContext().getResources().getDrawable(resourceId);
+        invalidate();
+    }
+
+    /**
      * Invalidates wheel
      * 
      * @param clearCaches
